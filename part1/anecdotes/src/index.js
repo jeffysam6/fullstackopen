@@ -1,17 +1,49 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
+const Anecdote = ({content,votes}) => (
+    <div>
+    {content}
+    <div>had {votes} votes </div>
+    </div>
+    )
+
+
+
 const App = (props) => {
   const [selected, setSelected] = useState(0)
+  const [best,setBest] = useState(0)
+  const [votes,setVotes] = useState(new Array(anecdotes.length).fill(0))
+
   
+  const next = () =>
+  Math.floor(Math.random()*props.anecdotes.length)
 
+  const handleVote = () => {
 
-  // console.log(selected,points[selected])
+    const updatedVotes = [...votes]
+    updatedVotes[selected] += 1
+    setVotes(updatedVotes)
+
+    if(updatedVotes[best] < updatedVotes[selected]){
+        setBest(selected)
+    }
+
+  }
 
   return (
     <div>
-      <p>{props.anecdotes[selected]}</p>
-      <button onClick={() => setSelected(Math.floor(Math.random()*props.anecdotes.length)) }>next anecdotes</button>
+    <h2>Anecdote of the day </h2>
+    <Anecdote
+        content={anecdotes[selected]}
+        votes = {votes[selected]} />
+      <button onClick={handleVote}>vote</button>
+      <button onClick={() => setSelected(next) }>next anecdotes</button>
+    
+    <h2>Anecdote with most votes </h2>
+    <Anecdote
+        content={anecdotes[best]}
+        votes = {votes[best]} />
     </div>
   )
 }

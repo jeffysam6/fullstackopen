@@ -1,0 +1,34 @@
+{
+  "persons": [
+    {
+      "name": "Arto Hellas",
+      "number": "040-123456",
+      "id": 1
+    },
+    {
+      "name": "Ada Lovelace",
+      "number": "39-44-5323523",
+      "id": 2
+    },
+    {
+      "name": "john",
+      "number": "666",
+      "id": 3
+    },
+    {
+      "name": "jeffy",
+      "number": "12345",
+      "id": 4
+    },
+    {
+      "name": "sam",
+      "number": "9898",
+      "id": 5
+    },
+    {
+      "name": "wolf",
+      "number": "164",
+      "id": 6
+    }
+  ]
+}
